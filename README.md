@@ -4,15 +4,16 @@ Welcome to learning cards.
 
 To run this app:
  1. `git clone https://github.com/michaelsking1993/learning_cards.git`
- 2. `rails db:migrate`
- 3. `rails s localhost:3000`
+ 2. `bundle`
+ 3. `rails db:migrate`
+ 4. `rails s localhost:3000`
  
 This app has the following features:
- 1. Sign up / sign in
- 2. Go to your dashboard to see your learning cards (things you've learned or want to learn)
+ 1. Sign up / sign in.
+ 2. Go to your dashboard to see your learning cards (things you've learned or want to learn).
  3. Create a learning item. Fill in the title (required), the confusing part (the part that confused/confuses you
  about this thing), mark it as learned/not learned, and optionally document the details (the "answer", i.e.
- what you actually learned. If you haven't yet learned this thing, leave it blank)
+ what you actually learned. If you haven't yet learned this thing, leave it blank).
  4. See all your learning items, ordered by most recent to oldest.
  5. Mark/unmark a learning item as learned. Learned items appear in green, unlearned items appear in yellow.
  6. Edit an item, destroy an item.
@@ -31,3 +32,4 @@ my instincts told me that feature testing was the most understandable and most e
 
 # Linting
 I used rubocop to fix style things. I ignored some rules, followed others.
+I decided to stop correcting everything eventually due to time.
