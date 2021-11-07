@@ -17,7 +17,7 @@ This app has the following features:
  4. See all your learning items, ordered by most recent to oldest.
  5. Mark/unmark a learning item as learned. Learned items appear in green, unlearned items appear in yellow.
  6. Edit an item, destroy an item.
- 7. If you leave a field of your learning item blank, it will appear as "[stub]" reminding you to go back later
+ 7. If you leave the documentation field of your learning item blank, it will appear as "[stub]" reminding you to go back later
  and fill it in.
  8. Two sample items, one learned and one not learned, are auto-created when you sign up.
  Feel free to delete these once you know how to use the app.
