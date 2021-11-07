@@ -3,7 +3,7 @@
 Welcome to learning cards.
 
 To run this app:
- 1. `git clonehttps://github.com/michaelsking1993/learning_cards.git`
+ 1. `git clone https://github.com/michaelsking1993/learning_cards.git`
  2. `rails db:migrate`
  3. `rails s localhost:3000`
  
