@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :learning_items
 
-  after_create :seed_sample_learning_items, unless: :_skip_seeding # used in factory to prevent extra items from being created
+  after_create_commit :seed_sample_learning_items, unless: :_skip_seeding # used in factory to prevent extra items from being created
 
   attr_accessor :_skip_seeding
 
