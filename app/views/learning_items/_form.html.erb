@@ -1,0 +1,39 @@
+<%= form_with(model: learning_item, local: true) do |form| %>
+  <% if learning_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(learning_item.errors.count, "error") %> prohibited this learning_item from being saved:</h2>
+
+      <ul>
+        <% learning_item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %><br/>
+    <%= form.text_field :title, autofocus: true %>
+  </div>
+  <br/>
+
+  <div class="field">
+    <%= form.label "What confused me" %><br/>
+    <%= form.text_field :confusing_part %>
+  </div>
+  <br/>
+
+  <div class="field">
+    <%= form.label 'Have you already learned this?' %>
+    <%= form.check_box :is_learned %>
+  </div>
+  <br/>
+  <div class="field">
+    <%= form.label :documentation %><br/>
+    <%= form.text_area :documentation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
