@@ -1,5 +1,5 @@
 class LearningItemsController < ApplicationController
-  before_action :set_learning_item, only: %i[ edit update destroy toggle_mark_as_learned ]
+  before_action :set_learning_item, only: %i[edit update destroy toggle_mark_as_learned]
   before_action :authenticate_user!
 
   def toggle_mark_as_learned
@@ -24,8 +24,7 @@ class LearningItemsController < ApplicationController
   end
 
   # GET /learning_items/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /learning_items
   def create
@@ -60,13 +59,12 @@ class LearningItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_learning_item
-      @learning_item = LearningItem.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def learning_item_params
-      params.require(:learning_item).permit(:title, :confusing_part, :is_learned, :documentation)
-    end
+  def set_learning_item
+    @learning_item = LearningItem.find(params[:id])
+  end
+
+  def learning_item_params
+    params.require(:learning_item).permit(:title, :confusing_part, :is_learned, :documentation)
+  end
 end

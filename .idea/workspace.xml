@@ -134,7 +134,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636222301255</updated>
-      <workItem from="1636222302500" duration="23630000" />
+      <workItem from="1636222302500" duration="25298000" />
     </task>
     <servers />
   </component>
@@ -150,17 +150,17 @@
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
     <state x="634" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.-1055.1920.996/0.25.1792.1095@0.25.1792.1095" timestamp="1636237605893" />
-    <state x="597" y="284" width="597" height="520" key="find.popup" timestamp="1636250934035">
-      <screen x="0" y="25" width="1792" height="1038" />
+    <state x="597" y="298" width="597" height="548" key="find.popup" timestamp="1636256085653">
+      <screen x="0" y="25" width="1792" height="1095" />
     </state>
     <state x="597" y="284" width="597" height="520" key="find.popup/0.-1055.1920.1055/0.25.1792.1038@0.25.1792.1038" timestamp="1636250934035" />
-    <state x="597" y="298" width="597" height="548" key="find.popup/0.-1055.1920.996/0.25.1792.1095@0.25.1792.1095" timestamp="1636238712245" />
-    <state x="1009" y="268" width="670" height="715" key="search.everywhere.popup" timestamp="1636254615467">
+    <state x="597" y="298" width="597" height="548" key="find.popup/0.-1055.1920.996/0.25.1792.1095@0.25.1792.1095" timestamp="1636256085653" />
+    <state x="1009" y="268" width="670" height="715" key="search.everywhere.popup" timestamp="1636256196045">
       <screen x="0" y="25" width="1792" height="1095" />
     </state>
     <state x="1009" y="255" width="670" height="676" key="search.everywhere.popup/0.-1055.1920.1055/0.25.1792.1036@0.25.1792.1036" timestamp="1636222506728" />
     <state x="1009" y="255" width="670" height="678" key="search.everywhere.popup/0.-1055.1920.1055/0.25.1792.1038@0.25.1792.1038" timestamp="1636253557301" />
-    <state x="1009" y="268" width="670" height="715" key="search.everywhere.popup/0.-1055.1920.996/0.25.1792.1095@0.25.1792.1095" timestamp="1636254615467" />
+    <state x="1009" y="268" width="670" height="715" key="search.everywhere.popup/0.-1055.1920.996/0.25.1792.1095@0.25.1792.1095" timestamp="1636256196045" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

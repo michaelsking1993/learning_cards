@@ -28,3 +28,6 @@ I started by writing the tests, and then filled in the functionality.
 Normally, when adding small tweaks to an already-existing system, I would write much more specific tests,
 particularly for API-only rails applications; but, as stated above, since this is a full-stack sample application,
 my instincts told me that feature testing was the most understandable and most effective way to test this app.
+
+# Linting
+I used rubocop to fix style things. I ignored some rules, followed others.
