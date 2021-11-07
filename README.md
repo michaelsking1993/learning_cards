@@ -19,6 +19,8 @@ This app has the following features:
  6. Edit an item, destroy an item.
  7. If you leave a field of your learning item blank, it will appear as "[stub]" reminding you to go back later
  and fill it in.
+ 8. Two sample items, one learned and one not learned, are auto-created when you sign up.
+ Feel free to delete these once you know how to use the app.
 
 # Tests
 Given that this is a full-stack application, I opted to use integration tests with Capybara for
@@ -28,6 +30,6 @@ This allowed me to ensure that the entire feature flow was working.
 
 I started by writing the tests, and then filled in the functionality.
 
-Normally, when adding small tweaks to an already-existing system, I would write much more specific tests,
+Normally, when adding small tweaks to an already-existing system, I would write much more specific tests (model, controller),
 particularly for API-only rails applications; but, as stated above, since this is a full-stack sample application,
-my instincts told me that feature testing was the most understandable and most effective way to test this app.
+my instincts told me that this type of testing was the most understandable and most effective way to test this app.

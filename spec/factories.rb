@@ -5,6 +5,10 @@ FactoryBot.define do
     name { 'Joe Shmoe' }
     email { 'help_me_learn@gmail.com' }
     password { 'beeswax' }
+
+    after(:build) do |user|
+      user._skip_seeding = true
+    end
   end
 
   factory :learning_item do
