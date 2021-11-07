@@ -28,13 +28,17 @@ RSpec.describe 'visiting the dashboard', type: :feature do
     end
 
     context 'when I have 3 learning items' do
-      it 'shows me my 3 items, with buttons for editing, destroying, and marking them as learned' do
+      it 'shows me my 3 items, ordered from most recent to oldest' do
         create_list(:learning_item, 3, title: 'Something I learned', user: @user)
         visit dashboard_path
         expect(page).to have_content('Something I learned', count: 3)
-        expect(page).to have_link('Destroy', count: 3)
-        expect(page).to have_link('Edit', count: 3)
-        expect(page).to have_link('Mark as learned', count: 3)
+        items = @user.learning_items.order(created_at: :desc)
+        most_recent_item_title = "#3: #{items[0].title}"
+        oldest_item_title = "#1: #{items[-1].title}"
+        # assert order through a regex... a bit weird but works.
+        location_of_most_recent_item = page.html =~ /#{most_recent_item_title}/
+        location_of_oldest_item = page.html =~ /#{oldest_item_title}/
+        expect(location_of_most_recent_item < location_of_oldest_item)
       end
     end
 
