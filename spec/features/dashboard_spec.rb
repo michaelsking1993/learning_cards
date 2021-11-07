@@ -7,10 +7,29 @@ RSpec.describe 'visiting the dashboard', type: :feature do
   end
 
   context 'when not logged in' do
-    it 'returns me to the non-logged-in version of the landing page' do
-      visit dashboard_path
-      expect(page).to have_button('Login')
-      expect(page).to have_button('Sign up')
+    shared_examples 'not logged in' do
+      it 'redirects to the non-logged-in version of the landing page' do
+        visit private_path
+        expect(page.current_path).to eq('/') # should return them to the landing page
+        expect(page).to have_button('Sign up') # should have non-logged-in button
+        expect(page).to have_button('Login') # should have non-logged-in button
+      end
+    end
+    context 'when I try to go to the dashboard' do
+      it_behaves_like 'not logged in' do
+        let(:private_path) { dashboard_path }
+      end
+    end
+    context 'when I try to go to the new item form' do
+      it_behaves_like 'not logged in' do
+        let(:private_path) { new_learning_item_path }
+      end
+    end
+    context 'when I try to edit a learning item' do
+      it_behaves_like 'not logged in' do
+        let(:learning_item) { create(:learning_item, user: @user) }
+        let(:private_path) { "/learning_items/#{learning_item.id}/edit" }
+      end
     end
   end
 
@@ -39,6 +58,52 @@ RSpec.describe 'visiting the dashboard', type: :feature do
         location_of_most_recent_item = page.html =~ /#{most_recent_item_title}/
         location_of_oldest_item = page.html =~ /#{oldest_item_title}/
         expect(location_of_most_recent_item < location_of_oldest_item)
+      end
+    end
+
+    context 'when I do not fill in the documentation field' do
+      it 'shows up as [stub] when I view it' do
+        create(:learning_item, user: @user, documentation: nil)
+        visit dashboard_path
+        expect(page).to have_content('[stub]')
+      end
+    end
+
+    context 'when I want to mark an item as learned' do
+      it 'lets me mark it as learned and updates the page accordingly' do
+        create(:learning_item, user: @user)
+        visit dashboard_path
+        click_on 'Mark as learned'
+        assert_current_path('/dashboard')
+        expect(LearningItem.first.is_learned).to be_truthy
+        expect(page).to have_link('Mark as not learned')
+      end
+    end
+
+    context 'when I want to unmark an item as learned' do
+      it 'lets me unmark it and updates the page accordingly' do
+        create(:learning_item, user: @user, is_learned: true)
+        visit dashboard_path
+        click_on 'Mark as not learned'
+        assert_current_path('/dashboard')
+        expect(LearningItem.first.is_learned).to be_falsey
+        expect(page).to have_link('Mark as learned')
+      end
+    end
+
+    context 'when an item is marked as learned' do
+      it 'shows up with a limegreen background color' do
+        create(:learning_item, user: @user, is_learned: true)
+        visit dashboard_path
+        expect(page).to have_css('.green')
+      end
+    end
+
+    context 'when an item is marked as not learned' do
+      it 'shows up with a yellow background color' do
+        create(:learning_item, user: @user, is_learned: false)
+        visit dashboard_path
+        expect(page).to have_css('.yellow')
       end
     end
 
@@ -118,28 +183,6 @@ RSpec.describe 'visiting the dashboard', type: :feature do
         expect(page).to have_content(item.title)
         expect(page).to have_content(item.confusing_part)
         expect(page).to have_content(item.documentation)
-      end
-    end
-
-    context 'when I want to mark an item as learned' do
-      it 'lets me mark it as learned and updates the page accordingly' do
-        create(:learning_item, user: @user)
-        visit dashboard_path
-        click_on 'Mark as learned'
-        assert_current_path('/dashboard')
-        expect(LearningItem.first.is_learned).to be_truthy
-        expect(page).to have_link('Mark as not learned')
-      end
-    end
-
-    context 'when I want to unmark an item as learned' do
-      it 'lets me unmark it and updates the page accordingly' do
-        create(:learning_item, user: @user, is_learned: true)
-        visit dashboard_path
-        click_on 'Mark as not learned'
-        assert_current_path('/dashboard')
-        expect(LearningItem.first.is_learned).to be_falsey
-        expect(page).to have_link('Mark as learned')
       end
     end
   end

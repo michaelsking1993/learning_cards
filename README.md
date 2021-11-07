@@ -17,6 +17,8 @@ This app has the following features:
  4. See all your learning items, ordered by most recent to oldest.
  5. Mark/unmark a learning item as learned. Learned items appear in green, unlearned items appear in yellow.
  6. Edit an item, destroy an item.
+ 7. If you leave a field of your learning item blank, it will appear as "[stub]" reminding you to go back later
+ and fill it in.
 
 # Tests
 Given that this is a full-stack application, I opted to use integration tests with Capybara for

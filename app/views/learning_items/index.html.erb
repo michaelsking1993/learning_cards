@@ -11,12 +11,12 @@
 <% else %>
   <% @learning_items.each_with_index do |learning_item, index| %>
     <% is_learned = learning_item.is_learned %>
-    <div style="background-color: <%= is_learned ? 'limegreen' : 'yellow' %>">
+    <div class="<%= "learning-item-#{0} #{is_learned ? 'green' : 'yellow'}" %>">
       <h2><%= "##{@learning_items.size - index}: #{learning_item.title}" %></h2>
       <%= is_learned ? 'LEARNED.' : 'NOT YET LEARNED.'%>
       <%= link_to (is_learned ? 'Mark as not learned' : 'Mark as learned'), toggle_mark_as_learned_path(id: learning_item.id), method: :put %>
       <p><b>What confuses me:</b> <%= learning_item.confusing_part %></p>
-      <p><b>Documentation:</b> <%= learning_item.documentation %></p>
+      <p><b>Documentation:</b> <%= learning_item.documentation || '[stub]' %></p>
       <%= link_to 'Edit', edit_learning_item_path(learning_item) %>
       |
       <%= link_to 'Destroy', learning_item, method: :delete %>
