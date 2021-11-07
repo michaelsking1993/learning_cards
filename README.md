@@ -11,7 +11,7 @@ To run this app:
 This app has the following features:
  1. Sign up / sign in.
  2. Go to your dashboard to see your learning cards (things you've learned or want to learn).
- 3. Create a learning item. Fill in the title (required), the confusing part (the part that confused/confuses you
+ 3. Create a learning item. Fill in the title (required), the confusing part (required - the part that confused/confuses you
  about this thing), mark it as learned/not learned, and optionally document the details (the "answer", i.e.
  what you actually learned. If you haven't yet learned this thing, leave it blank).
  4. See all your learning items, ordered by most recent to oldest.
