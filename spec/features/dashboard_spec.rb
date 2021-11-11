@@ -15,16 +15,19 @@ RSpec.describe 'visiting the dashboard', type: :feature do
         expect(page).to have_button('Login') # should have non-logged-in button
       end
     end
+
     context 'when I try to go to the dashboard' do
       it_behaves_like 'not logged in' do
         let(:private_path) { dashboard_path }
       end
     end
+
     context 'when I try to go to the new item form' do
       it_behaves_like 'not logged in' do
         let(:private_path) { new_learning_item_path }
       end
     end
+
     context 'when I try to edit a learning item' do
       it_behaves_like 'not logged in' do
         let(:learning_item) { create(:learning_item, user: @user) }

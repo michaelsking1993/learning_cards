@@ -3,7 +3,6 @@
 <h1>Dashboard: my learning items</h1>
 <br>
 <%= link_to 'Create a new learning item', new_learning_item_path %>
-|
 <%= link_to 'Back to home', root_path %>
 <br>
 <% if @learning_items.blank? %>
@@ -21,5 +20,6 @@
       |
       <%= link_to 'Destroy', learning_item, method: :delete %>
     </div>
+    <br>
   <% end %>
 <% end %>
